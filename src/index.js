@@ -3,4 +3,9 @@
 // import './operators/combination/concat';
 // import './operators/combination/concatAll';
 // import './operators/combination/endWith';
-import './operators/combination/forkJoin';
+// import './operators/combination/forkJoin';
+// import './operators/combination/merge';
+// import './operators/combination/mergerAll';
+// import './operators/combination/pairwise';
+// import './operators/combination/race';
+import './operators/combination/withLatestFrom';
