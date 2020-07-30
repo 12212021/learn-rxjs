@@ -34,6 +34,5 @@ const baseConfig = {
 
 module.exports = (env, argv) => {
     const config = argv.mode === 'development' ? devConfig : productionConfig;
-    console.log(merge(baseConfig, config));
     return merge(baseConfig, config);
 };

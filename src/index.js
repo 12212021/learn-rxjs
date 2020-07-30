@@ -1,3 +1,7 @@
+/*
+* operators
+* combination
+* */
 // import './operators/combination/combineAll';
 // import './operators/combination/combineLatest';
 // import './operators/combination/concat';
@@ -8,4 +12,32 @@
 // import './operators/combination/mergerAll';
 // import './operators/combination/pairwise';
 // import './operators/combination/race';
-import './operators/combination/withLatestFrom';
+// import './operators/combination/withLatestFrom';
+// import './operators/combination/zip';
+
+
+/*
+* operators
+* Conditional
+* */
+// import './operators/conditional/defaultEmpty';
+// import './operators/conditional/every';
+// import './operators/conditional/iif';
+// import './operators/conditional/sequenceEqual';
+
+
+/*
+* operators
+* Transformation
+* */
+// import './operators/transformation/map';
+// import './operators/transformation/mapTo';
+// import './operators/transformation/mergeMap';
+// import './operators/transformation/scan';
+
+
+/*
+* operators
+* utility
+* */
+import './operators/utility/tap';
