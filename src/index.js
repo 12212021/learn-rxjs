@@ -1,7 +1,7 @@
 /*
-* operators
-* combination
-* */
+ * operators
+ * combination
+ * */
 // import './operators/combination/combineAll';
 // import './operators/combination/combineLatest';
 // import './operators/combination/concat';
@@ -15,29 +15,31 @@
 // import './operators/combination/withLatestFrom';
 // import './operators/combination/zip';
 
-
 /*
-* operators
-* Conditional
-* */
+ * operators
+ * Conditional
+ * */
 // import './operators/conditional/defaultEmpty';
 // import './operators/conditional/every';
 // import './operators/conditional/iif';
 // import './operators/conditional/sequenceEqual';
 
-
 /*
-* operators
-* Transformation
-* */
+ * operators
+ * Transformation
+ * */
 // import './operators/transformation/map';
 // import './operators/transformation/mapTo';
 // import './operators/transformation/mergeMap';
 // import './operators/transformation/scan';
-
+// import './operators/transformation/buffer';
+// import './operators/transformation/bufferCount';
+// import './operators/transformation/bufferTime';
+// import './operators/transformation/bufferToggle';
+import './operators/transformation/bufferWhen';
 
 /*
-* operators
-* utility
-* */
-import './operators/utility/tap';
+ * operators
+ * utility
+ * */
+// import './operators/utility/tap';
