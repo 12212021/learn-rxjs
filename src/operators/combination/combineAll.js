@@ -1,6 +1,6 @@
 /*
 * combineAll(project: function): Observable
-* When source observable completes use combineLatest with collected observables.
+* Flattens an Observable-of-Observables by applying combineLatest when the Observable-of-Observables completes.
 * */
 
 import {take, map, combineAll} from 'rxjs/operators';
@@ -31,7 +31,7 @@ const example$ = source$.pipe(
     map(val =>
         interval(1000)
         .pipe(
-            map(i => `Result (${val}): ${i}`),
+            map(i => `out: (${val}); inner: ${i}`),
             take(5)
         )
     )

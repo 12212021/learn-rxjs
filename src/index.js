@@ -36,7 +36,8 @@
 // import './operators/transformation/bufferCount';
 // import './operators/transformation/bufferTime';
 // import './operators/transformation/bufferToggle';
-import './operators/transformation/bufferWhen';
+// import './operators/transformation/bufferWhen';
+import './operators/transformation/concatMap';
 
 /*
  * operators
