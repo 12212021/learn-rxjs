@@ -1,7 +1,7 @@
 /*
 * scan(accumulator: function, seed: any): Observable
 * reduce over time
-*
+* scan将observable reduce成另外的一个observable
 * */
 import {interval, of} from 'rxjs';
 import {scan, map, distinctUntilChanged} from 'rxjs/operators';

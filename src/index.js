@@ -37,7 +37,14 @@
 // import './operators/transformation/bufferTime';
 // import './operators/transformation/bufferToggle';
 // import './operators/transformation/bufferWhen';
-import './operators/transformation/concatMap';
+// import './operators/transformation/concatMap';
+// import './operators/transformation/concatMapTo';
+// import './operators/transformation/exhaustMap';
+// import './operators/transformation/expand';
+// import './operators/transformation/groupBy';
+// import './operators/transformation/mergeScan';
+// import './operators/transformation/pluck';
+import './operators/transformation/reduce';
 
 /*
  * operators
