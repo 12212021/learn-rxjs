@@ -48,9 +48,11 @@
 // import './operators/transformation/switchMap';
 // import './operators/transformation/switchMapTo';
 // import './operators/transformation/toArray';
-import './operators/transformation/window';
-
-
+// import './operators/transformation/window';
+// import './operators/transformation/windowCount';
+// import './operators/transformation/windowTime';
+// import './operators/transformation/windowToggle';
+import './operators/transformation/windowWhen';
 
 /*
  * operators
