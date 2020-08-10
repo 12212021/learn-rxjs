@@ -52,10 +52,17 @@
 // import './operators/transformation/windowCount';
 // import './operators/transformation/windowTime';
 // import './operators/transformation/windowToggle';
-import './operators/transformation/windowWhen';
+// import './operators/transformation/windowWhen';
+
 
 /*
  * operators
  * utility
  * */
 // import './operators/utility/tap';
+// import './operators/utility/delay';
+// import './operators/utility/delayWhen';
+// import './operators/utility/repeat';
+// import './operators/utility/timeInterval';
+// import './operators/utility/timeout';
+import './operators/utility/timeoutWith';

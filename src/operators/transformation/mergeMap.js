@@ -14,6 +14,8 @@ import {mergeMap, take} from 'rxjs/operators';
 const myPromise = val =>
     new Promise(resolve =>
         resolve(`${val} World From Promise!`));
+
+
 of('Hello').pipe(
     mergeMap(
         val => myPromise(val),
