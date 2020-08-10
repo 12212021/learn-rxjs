@@ -44,7 +44,13 @@
 // import './operators/transformation/groupBy';
 // import './operators/transformation/mergeScan';
 // import './operators/transformation/pluck';
-import './operators/transformation/reduce';
+// import './operators/transformation/reduce';
+// import './operators/transformation/switchMap';
+// import './operators/transformation/switchMapTo';
+// import './operators/transformation/toArray';
+import './operators/transformation/window';
+
+
 
 /*
  * operators
