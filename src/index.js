@@ -76,4 +76,7 @@
 // import './operators/creation/defer';
 // import './operators/creation/empty';
 // import './operators/creation/from';
-import './operators/creation/genrate';
+// import './operators/creation/genrate';
+// import './operators/creation/range';
+// import './operators/creation/throw';
+import './operators/creation/timer';
