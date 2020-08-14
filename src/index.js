@@ -79,4 +79,13 @@
 // import './operators/creation/genrate';
 // import './operators/creation/range';
 // import './operators/creation/throw';
-import './operators/creation/timer';
+// import './operators/creation/timer';
+
+
+/*
+* operators
+* error-handing
+* */
+// import './operators/error-handing/catch';
+// import './operators/error-handing/retry';
+import './operators/error-handing/retry-when';
