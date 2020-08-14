@@ -88,4 +88,15 @@
 * */
 // import './operators/error-handing/catch';
 // import './operators/error-handing/retry';
-import './operators/error-handing/retry-when';
+// import './operators/error-handing/retry-when';
+
+
+/*
+* operators
+* filtering
+* */
+// import './operators/filtering/audit-time';
+// import './operators/filtering/debounce';
+// import './operators/filtering/debounce-time';
+// import './operators/filtering/distinct';
+import './operators/filtering/distinct-until-changed';
