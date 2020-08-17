@@ -99,4 +99,6 @@
 // import './operators/filtering/debounce';
 // import './operators/filtering/debounce-time';
 // import './operators/filtering/distinct';
-import './operators/filtering/distinct-until-changed';
+// import './operators/filtering/distinct-until-changed';
+// import './operators/filtering/filter';
+import './operators/filtering/find';
