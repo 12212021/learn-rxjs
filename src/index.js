@@ -101,4 +101,12 @@
 // import './operators/filtering/distinct';
 // import './operators/filtering/distinct-until-changed';
 // import './operators/filtering/filter';
-import './operators/filtering/find';
+// import './operators/filtering/find';
+// import './operators/filtering/first';
+// import './operators/filtering/ignore-elements';
+// import './operators/filtering/last';
+// import './operators/filtering/sample';
+// import './operators/filtering/single'
+// import './operators/filtering/skip';
+// import './operators/filtering/skip-until';
+import './operators/filtering/skpi-while';
