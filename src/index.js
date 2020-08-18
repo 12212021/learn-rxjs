@@ -109,4 +109,9 @@
 // import './operators/filtering/single'
 // import './operators/filtering/skip';
 // import './operators/filtering/skip-until';
-import './operators/filtering/skpi-while';
+// import './operators/filtering/skip-while';
+// import './operators/filtering/take';
+// import './operators/filtering/take-last';
+// import './operators/filtering/take-while';
+// import './operators/filtering/take-until';
+import './operators/filtering/throttle';
