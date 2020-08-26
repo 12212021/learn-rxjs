@@ -25,6 +25,10 @@ operator其实一个代表操作的function，数据流中的数据流过管道p
 
 
 #### Subject
+subject是特殊类型的observable，它能够将值传递给多个observer，subject是多播的，（普通的observable是单播的，且没有订阅的observer都
+是独立执行的）。
+- 每个subject都是observable，提供一个observer就能够工作，observer无法分辨自己从subject还是普通的observable获取的值
+- 每个subject也是观察者，他有next、error、complete方法，给subject提供新值，只需要调用next(value)，subject会将值多播出去
 
 
 #### Scheduler

@@ -114,4 +114,12 @@
 // import './operators/filtering/take-last';
 // import './operators/filtering/take-while';
 // import './operators/filtering/take-until';
-import './operators/filtering/throttle';
+// import './operators/filtering/throttle';
+// import './operators/filtering/throttle-time';
+
+/*
+* subjects
+* */
+// import './subjects/async-subject';
+// import './subjects/behavior-subject';
+import './subjects/replay-subject';
