@@ -1,6 +1,6 @@
-// https://stackblitz.com/run?devtoolsheight=50&file=index.ts,package.json
 // 轮询例子
-import { of, defer, tap, mergeMap, throwError, retry, timer } from 'rxjs';
+import { of, defer, throwError, timer, EMPTY } from 'rxjs';
+import { tap, mergeMap, retry, repeat, delay } from 'rxjs/operators';
 
 let id = 0;
 const getP = () => {
@@ -13,24 +13,45 @@ const getP = () => {
 };
 
 const source = defer(() => getP());
-const subscription = source
-    .pipe(
-        // tap一般做一些side effect
-        tap(val => console.log(val, 'yyyyy')),
-        mergeMap(num => {
-            return num < 10 ? throwError(() => new Error('tasking')) : of(num);
-        }),
-        retry({
-            delay(error) {
-                if (error.message === 'tasking') {
-                    return timer(0);
-                } else {
-                    return throwError(() => error);
-                }
-            },
-        })
-    )
-    .subscribe(data => console.log(data, 'finnaly'));
+const subscription = source.pipe(
+    // tap一般做一些side effect
+    tap(val => console.log(val, 'retry')),
+    mergeMap(num => {
+        return num < 10 ? throwError(() => new Error('tasking')) : of(num);
+    }),
+    retry({
+        delay(errors) {
+            if (errors.message === 'tasking') {
+                return timer(5000);
+            } else {
+                return throwError(() => errors);
+            }
+        },
+    })
+);
 
-// cancel的话，直接
-subscription.subscription();
+// subscription.subscribe(final => console.log(final, 'retry final'));
+// cancel的话，直接unsubscribe
+let isTasking = true;
+const subscription1 = defer(() => getP()).pipe(
+    tap(num => console.log(num, 'repeat')),
+    repeat({
+        delay(count) {
+            // count是数据被订阅的次数
+            // console.log(count, 'ccc');
+            if (isTasking) {
+                return of(0).pipe(delay(5000));
+            } else {
+                return EMPTY;
+            }
+        },
+    })
+);
+
+subscription1.subscribe(final => {
+    if (final < 10) {
+        isTasking = true;
+    } else {
+        isTasking = false;
+    }
+});

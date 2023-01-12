@@ -122,4 +122,9 @@
 * */
 // import './subjects/async-subject';
 // import './subjects/behavior-subject';
-import './subjects/replay-subject';
+// import './subjects/replay-subject';
+
+
+
+// example
+import './example/polling';

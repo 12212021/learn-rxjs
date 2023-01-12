@@ -20,6 +20,7 @@ const baseConfig = {
     resolve: {
         extensions: ['.js']
     },
+    devtool: 'source-map',
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
