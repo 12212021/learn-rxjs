@@ -1,6 +1,25 @@
 // 轮询例子
-import { of, defer, throwError, timer, EMPTY } from 'rxjs';
-import { tap, mergeMap, retry, repeat, delay } from 'rxjs/operators';
+import {
+    of,
+    defer,
+    throwError,
+    timer,
+    EMPTY,
+    Subject,
+    BehaviorSubject,
+    asyncScheduler,
+} from 'rxjs';
+import {
+    tap,
+    mergeMap,
+    retry,
+    repeat,
+    delay,
+    repeatWhen,
+    observeOn,
+    take,
+    takeWhile,
+} from 'rxjs/operators';
 
 let id = 0;
 const getP = () => {
@@ -48,10 +67,31 @@ const subscription1 = defer(() => getP()).pipe(
     })
 );
 
-subscription1.subscribe(final => {
-    if (final < 10) {
-        isTasking = true;
-    } else {
-        isTasking = false;
-    }
+// subscription1.subscribe(final => {
+//     if (final < 10) {
+//         isTasking = true;
+//     } else {
+//         isTasking = false;
+//     }
+// });
+
+// 用subject不生效，但是用behaviorSubject是生效的
+const behaviorSubject$ = new BehaviorSubject(0);
+const subscription2 = defer(getP).pipe(
+    repeat({
+        delay: () => {
+            return behaviorSubject$;
+        },
+    })
+);
+
+subscription2.subscribe({
+    next: val => {
+        console.log(val, 'behavoirSubject');
+        if (val < 10) {
+            behaviorSubject$.next(0);
+        } else {
+            behaviorSubject$.complete();
+        }
+    },
 });
