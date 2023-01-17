@@ -75,7 +75,7 @@ const subscription1 = defer(() => getP()).pipe(
 //     }
 // });
 
-// 用subject不生效，但是用behaviorSubject是生效的
+// behaviorSubject每次只要有人subscribe，就会next一个当前引用的最新值
 const behaviorSubject$ = new BehaviorSubject(0);
 const subscription2 = defer(getP).pipe(
     repeat({
@@ -87,11 +87,34 @@ const subscription2 = defer(getP).pipe(
 
 subscription2.subscribe({
     next: val => {
-        console.log(val, 'behavoirSubject');
+        console.log(val, 'subject');
         if (val < 10) {
             behaviorSubject$.next(0);
         } else {
             behaviorSubject$.complete();
         }
     },
+});
+
+const subject$ = new Subject();
+const subscription3 = defer(getP).pipe(
+    repeat({
+        delay: () => {
+            return subject$;
+        },
+    })
+);
+
+subscription3.subscribe(val => {
+    if (val < 10) {
+        timer(5000).subscribe(() => {
+            subject$.next(0);
+        });
+        // subject.next();
+        // 这里如果直接next，线性执行，会先执行subject.next 
+        // 然后observable执行完成，执行repeat，subscribe subject这个observable
+        // 但是这个observable已经完成了，所以repeat不会流出任何信号
+    } else {
+        subject$.complete();
+    }
 });
