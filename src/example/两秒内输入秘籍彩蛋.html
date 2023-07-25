@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.1/rxjs.umd.js"
+            integrity="sha512-ow7sbCeOI1NiWyqnMwWC/CJhkhi4XNFJQOGT/SCu6kKB+rJmQC36rPF2mZAknyS8ibEZpuhw1diUHJzHJ1Rw9Q=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+    <body></body>
+
+    <script>
+        /**
+         * 两秒内输入键盘特定按键触发彩蛋
+         * 类似于魂斗罗秘籍的输入
+         */
+
+        const { map, fromEvent, bufferCount, timestamp } = rxjs;
+        const code = [
+            'ArrowUp',
+            'ArrowUp',
+            'ArrowDown',
+            'ArrowDown',
+            'ArrowLeft',
+            'ArrowLeft',
+            'ArrowRight',
+            'ArrowRight',
+        ];
+
+        const isEqual = (listA, listB) => {
+            if (listA.length !== listB.length) {
+                return false;
+            }
+            for (let index = 0; index < listA.length; index++) {
+                if (listA[index] !== listB[index]) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        fromEvent(document, 'keyup')
+            .pipe(
+                map(e => e.code),
+                timestamp(),
+                bufferCount(code.length, 1)
+            )
+
+            .subscribe(lastKey => {
+                const first = lastKey[0];
+                const last = lastKey[lastKey.length - 1];
+                if (
+                    last.timestamp - first.timestamp <= 2 * 1000 &&
+                    isEqual(
+                        lastKey.map(e => e.value),
+                        code
+                    )
+                ) {
+                    console.log('隐藏的彩蛋 \(^o^)/~');
+                }
+            });
+    </script>
+</html>
