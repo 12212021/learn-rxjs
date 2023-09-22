@@ -54,7 +54,6 @@
 // import './operators/transformation/windowToggle';
 // import './operators/transformation/windowWhen';
 
-
 /*
  * operators
  * utility
@@ -67,11 +66,10 @@
 // import './operators/utility/timeout';
 // import './operators/utility/timeoutWith';
 
-
 /*
-* operators
-* creation
-* */
+ * operators
+ * creation
+ * */
 // import './operators/creation/ajax';
 // import './operators/creation/defer';
 // import './operators/creation/empty';
@@ -81,20 +79,18 @@
 // import './operators/creation/throw';
 // import './operators/creation/timer';
 
-
 /*
-* operators
-* error-handing
-* */
+ * operators
+ * error-handing
+ * */
 // import './operators/error-handing/catch';
 // import './operators/error-handing/retry';
 // import './operators/error-handing/retry-when';
 
-
 /*
-* operators
-* filtering
-* */
+ * operators
+ * filtering
+ * */
 // import './operators/filtering/audit-time';
 // import './operators/filtering/debounce';
 // import './operators/filtering/debounce-time';
@@ -118,12 +114,11 @@
 // import './operators/filtering/throttle-time';
 
 /*
-* subjects
-* */
+ * subjects
+ * */
 // import './subjects/async-subject';
 // import './subjects/behavior-subject';
 // import './subjects/replay-subject';
-
-
+import './subjects/subject';
 
 // example
