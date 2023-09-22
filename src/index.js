@@ -127,4 +127,3 @@
 
 
 // example
-import './example/polling';

@@ -1,19 +1,19 @@
 /*
-* combineAll(project: function): Observable
-* Flattens an Observable-of-Observables by applying combineLatest when the Observable-of-Observables completes.
-* */
+ * combineAll(project: function): Observable
+ * Flattens an Observable-of-Observables by applying combineLatest when the Observable-of-Observables completes.
+ * */
 
-import {take, map, combineAll} from 'rxjs/operators';
-import {interval} from 'rxjs';
+import { take, map, combineLatestAll } from 'rxjs/operators';
+import { interval } from 'rxjs';
 
 // 每隔一秒生成一个数据（无限序列）  take取前两个
 const source$ = interval(1000).pipe(take(2));
 
 /*
-* source内部被映射成了两个内部的interval Observables
-* combineAll使用combinationLatest的策略来合并流，每当内部observable发出一个value的时候
-* 会将两个inner observable发出的最新的val合并在一起
-* */
+ * source内部被映射成了两个内部的interval Observables
+ * combineLatestAll主要的作用是将内部的observable给拍平，一般情况下比较少使用，mergeMap, switchMap等操作符自带拍平
+ * 
+ * */
 
 /*
 output:
@@ -29,14 +29,13 @@ output:
 * */
 const example$ = source$.pipe(
     map(val =>
-        interval(1000)
-        .pipe(
+        interval(1000).pipe(
             map(i => `out: (${val}); inner: ${i}`),
             take(5)
         )
     )
 );
 
-const combined$ = example$.pipe(combineAll());
+const combined$ = example$.pipe(combineLatestAll());
 
 combined$.subscribe(console.log);
