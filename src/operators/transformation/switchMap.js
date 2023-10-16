@@ -40,3 +40,6 @@ const timer$ = merge(pause$, resume$).pipe(
     }, COUNTDOWN_SECONDS),
     takeWhile(val => val >= 0)
 ).subscribe(val => remainingElem.innerHTML = val + '');
+
+
+// switchMap内部靠取消上一个subscription来发挥作用，如果是同步的操作，那么observable已经完成了，也就无法取消了
