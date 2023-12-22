@@ -127,4 +127,4 @@
 
 
 // example
-import './example/polling';
+import './example/index.js'
