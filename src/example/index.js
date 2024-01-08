@@ -9,6 +9,8 @@ import {
     forkJoin,
     map,
     raceWith,
+    mergeMap,
+    of
 } from 'rxjs';
 
 /**
@@ -91,9 +93,28 @@ function getFastOne() {
  * 接口的竟态请求
  * switchMap 获取最新的返回
  * exhaustMap 在第一个返回以前，忽略后续请求
- * concatMap 请求排队处理
+ * concatMap 请求排队处理，concat其实是mergeMap的一个特例，其concurrent参数为1
  * mergeMap 请求并发
  */
+function concurrentRequest(list = [1, 2, 3, 4, 5, 6, 7], concurrent = 2) {
+    return from(list).pipe(
+        mergeMap(
+            val => {
+                return from(initData());
+            },
+            (outer, inner) => {
+                return {
+                    id: outer,
+                    data: inner,
+                };
+            },
+            concurrent
+        )
+    );
+}
+concurrentRequest().subscribe(data => {
+    console.log(data, Date.now());
+});
 
 /**
  * 数据的多次请求组装
